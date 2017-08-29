@@ -1,0 +1,11 @@
+<h1>OmniAuth ReCharge Example</h1>
+<% if session[:user_info].present? %>
+  <p>
+    You are logged in as:
+    <pre><%= JSON.pretty_generate session[:user_info] %></pre>
+    <%= link_to "Log out of ReCharge", '/auth/recharge/logout' %>
+  </p>
+<% else %>
+  <p>You are not currently logged into ReCharge.</p>
+  <%= link_to "Log in to ReCharge", '/auth/recharge' %>
+<% end %>
