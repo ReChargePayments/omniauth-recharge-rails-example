@@ -1,24 +1,34 @@
-# README
+# omniauth-recharge-rails-example
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+All the code required to get omniauth included in your app is contained in the commit [f94c9213685d9d426491419d81aa10aa96e353d9](https://github.com/SocalProofit/omniauth-recharge-rails-example/commit/f94c9213685d9d426491419d81aa10aa96e353d9)
 
-Things you may want to cover:
+OAuth in a few simple steps:
 
-* Ruby version
+1. Create the initializer `config/initializers/omniauth.rb`:
+```
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :recharge, ENV['RECHARGE_CLIENT_ID'], ENV['RECHARGE_CLIENT_SECRET']
+end
+```
 
-* System dependencies
+2. Add the environemnt variables `RECHARGE_CLIENT_ID` and `RECHARGE_CLIENT_SECRET` with the values for the ReCharge app you are making.
 
-* Configuration
+3. Create a SessionsController `app/controllers/sessions_controller.rb` with the create action:
+```
+  def create
+    session[:user_info] = request.env['omniauth.auth']
+    redirect_to root_path
+  end
+```
 
-* Database creation
+4. Add `get '/auth/:provider/callback', to: 'sessions#create'` to the routes.
 
-* Database initialization
+5. Run the server and go to `/auth/recharge`. This will kick off the OAuth flow from the omniauth gem and the user info will be placed in the session after the callback.
 
-* How to run the test suite
+## Running this example
 
-* Services (job queues, cache servers, search engines, etc.)
+In your partner app, set the callback url to `http://localhost:3000/auth/recharge/callback`.
 
-* Deployment instructions
+Create a `.env.development` file in the root of the project and add the environment variables `RECHARGE_CLIENT_ID=<client_id>` and `RECHARGE_CLIENT_SECRET=<client_secret>`
 
-* ...
+Start the server using `bundle exec rails server` and go to http://localhost:3000 in your browser.
