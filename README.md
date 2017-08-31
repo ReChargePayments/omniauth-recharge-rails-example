@@ -29,7 +29,7 @@ end
 
 ## Running this example
 
-In your partner app, set the callback url to `http://localhost:3000/auth/recharge/callback`.
+In your [ReCharge partner](https://shopifysubscriptions.com/partners) app, set the callback url to `http://localhost:3000/auth/recharge/callback`.
 
 Create a `.env.development` file in the root of the project and add the environment variables `RECHARGE_CLIENT_ID=<client_id>` and `RECHARGE_CLIENT_SECRET=<client_secret>`
 
