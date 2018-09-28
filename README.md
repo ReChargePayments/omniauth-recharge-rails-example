@@ -2,7 +2,7 @@
 
 This project was created using ruby 2.4.1 and rails 5.1.3.
 
-All the code required to get omniauth included in your app is contained in the commit [f94c9213685d9d426491419d81aa10aa96e353d9](https://github.com/SocalProofit/omniauth-recharge-rails-example/commit/f94c9213685d9d426491419d81aa10aa96e353d9)
+All the code required to get omniauth included in your app is contained in the commit [f94c9213685d9d426491419d81aa10aa96e353d9](https://github.com/ReChargePayments/omniauth-recharge-rails-example/commit/f94c9213685d9d426491419d81aa10aa96e353d9)
 
 ## OAuth in a few simple steps
 
