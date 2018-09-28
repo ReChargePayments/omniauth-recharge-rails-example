@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/SocalProofit/omniauth-recharge.git
+  remote: https://github.com/ReChargePayments/omniauth-recharge.git
   revision: 7c926dcd612b071fb088c28a8919db525e67df98
   specs:
     omniauth-recharge (0.1.0)
